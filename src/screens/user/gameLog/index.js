@@ -13,6 +13,7 @@ import {
 import {Colors, Dim} from '../../../constants/Theme';
 import {Fonts} from '../../../constants/fonts';
 import Entypo from 'react-native-vector-icons/Entypo';
+import RNFetchBlob from 'rn-fetch-blob';
 
 import {useSelector} from 'react-redux';
 // import {GameLogList} from '../../../dummyData/DummyData';
@@ -21,8 +22,35 @@ import {getUserLogs} from '../../../services/gameLog.services';
 const GameLog = props => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
-
   const user = useSelector(state => state.authReducer.user);
+
+  console.log(teamB.players[0]._id);
+
+  const team_details = [
+    [teamA.goalie, '(Home) Goalie (Away)', teamB.goalie],
+    [teamA.inHome, '(Home) In home (Away)', teamB.inHome],
+  ];
+
+  const teamB_details = [];
+
+  // construct csvString
+  const row1String = team_details
+    .map(d => `${d[0]},${d[1]},${d[2]},\n`)
+    .join('');
+  const row2String = teamB_details.map(d => `${d[0]},${d[1]}\n`).join('');
+  const csvString = `${row1String}${row2String}`;
+
+  // write the current list of answers to a local csv file
+  const pathToWrite = `${RNFetchBlob.fs.dirs.DownloadDir}/gameData.csv`;
+  console.log('pathToWrite', pathToWrite);
+  // pathToWrite /storage/emulated/0/Download/data.csv
+  RNFetchBlob.fs
+    .writeFile(pathToWrite, csvString, 'utf8')
+    .then(() => {
+      console.log(`wrote file ${pathToWrite}`);
+      // wrote file /storage/emulated/0/Download/data.csv
+    })
+    .catch(error => console.error(error));
 
   const goBackHandler = () => {
     props.navigation.goBack();
