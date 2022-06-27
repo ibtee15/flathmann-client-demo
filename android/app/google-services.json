@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "778897144921",
+    "project_id": "flethman-1bbbd",
+    "storage_bucket": "flethman-1bbbd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:778897144921:android:d6b0d6b90f05474c74c548",
+        "android_client_info": {
+          "package_name": "com.flathman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "778897144921-etf4sfk7no6jqujhar1bjkeadcmrte1h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flathman",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "778897144921-lie3gdoat6h0d43o4jgnj98muu0qik4h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-daXEJo7wd--nukC1QgpKXIioxhn2mek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "778897144921-lie3gdoat6h0d43o4jgnj98muu0qik4h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
